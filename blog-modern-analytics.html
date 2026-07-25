@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Yeshil Bangera on the technical and organizational foundations of successful analytics modernization."
+    />
+    <meta name="theme-color" content="#07090d" />
+    <title>What makes analytics modernization work? — Yeshil Bangera</title>
+    <link
+      rel="canonical"
+      href="https://yeshilbangera.github.io/blog-modern-analytics.html"
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/css/portfolio.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <div class="nav-shell">
+        <a class="brand" href="index.html" aria-label="Yeshil Bangera, home">
+          <span class="brand-mark" aria-hidden="true">YB</span>
+          <span>Yeshil Bangera</span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="site-nav"
+          data-nav-toggle
+        >
+          <span></span><span></span><span></span>
+          <span class="sr-only">Open navigation</span>
+        </button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary" data-nav>
+          <a href="index.html">Home</a>
+          <a href="experience.html">Experience</a>
+          <a href="publications.html">Publications</a>
+          <a class="is-active" href="blog.html">Blog</a>
+          <a class="nav-cta" href="https://www.linkedin.com/in/yeshil-d-bangera"
+            >LinkedIn ↗</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <article>
+        <header class="article-hero shell">
+          <a class="back-link" href="blog.html">← All articles</a>
+          <div class="article-meta">
+            <span>Analytics engineering</span>
+            <time datetime="2026-07-24">July 24, 2026 · 6 min read</time>
+          </div>
+          <h1>What makes an analytics modernization actually work?</h1>
+          <p>
+            The technical migration is only half the job. The rest is shared
+            definitions, visible ownership, and earning trust one decision at a
+            time.
+          </p>
+        </header>
+
+        <div class="article-banner" aria-hidden="true">
+          <div class="article-flow shell">
+            <span>Legacy</span><i></i><span>Reliable</span><i></i
+            ><span>Useful</span>
+          </div>
+        </div>
+
+        <div class="article-body">
+          <p class="article-lede">
+            Modernizing analytics is often described as a stack problem: move
+            data to the cloud, rewrite pipelines, introduce orchestration, and
+            ship better dashboards. Those steps matter. But they are not what
+            ultimately determines whether the work succeeds.
+          </p>
+
+          <h2>Start with the decision, not the destination</h2>
+          <p>
+            A migration can reproduce every legacy table perfectly and still
+            deliver very little value. Before choosing the target architecture,
+            identify the decisions the current system supports, who makes them,
+            what creates delay, and which definitions are contested.
+          </p>
+          <p>
+            This changes the roadmap. Instead of moving assets in dependency
+            order alone, you can organize work around decision flows. The first
+            release becomes a complete, useful slice rather than an impressive
+            collection of disconnected infrastructure.
+          </p>
+
+          <blockquote>
+            A modern stack is only successful when people can make an important
+            decision faster—and trust the answer when they do.
+          </blockquote>
+
+          <h2>Treat definitions as part of the system</h2>
+          <p>
+            Teams rarely struggle because nobody can calculate a metric. They
+            struggle because several valid calculations exist, each built for a
+            different context. Modernization is the right moment to make those
+            differences explicit.
+          </p>
+          <p>
+            A production metric needs a definition, grain, owner, refresh
+            expectation, known exclusions, and a clear decision it supports. Put
+            that contract next to the model—not in a document nobody will find
+            six months later.
+          </p>
+
+          <h2>Design trust into the workflow</h2>
+          <p>
+            Data quality checks are essential, but trust is broader than test
+            coverage. Users need to see where a number came from, when it was
+            updated, what changed, and who can answer a question about it.
+          </p>
+          <ul>
+            <li>Make freshness and ownership visible.</li>
+            <li>Test business rules, not only technical constraints.</li>
+            <li>Reconcile old and new outputs with domain experts.</li>
+            <li>Explain intentional differences before users discover them.</li>
+          </ul>
+
+          <h2>Measure adoption as an outcome</h2>
+          <p>
+            Pipeline runtime, cost, and test coverage are useful engineering
+            metrics. A modernization program also needs adoption measures:
+            manual hours retired, reconciliation time reduced, decisions made
+            from the shared layer, and duplicate reports decommissioned.
+          </p>
+          <p>
+            The goal is not to preserve every old workflow on newer
+            infrastructure. It is to create a smaller, clearer system that earns
+            its place in how the organization operates.
+          </p>
+
+          <div class="article-end">
+            <p>Thanks for reading.</p>
+            <a href="blog.html">More field notes →</a>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell">
+        <span>© <span data-year></span> Yeshil Bangera</span>
+        <div>
+          <a href="experience.html">Experience</a>
+          <a href="publications.html">Publications</a>
+          <a href="blog.html">Blog</a>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/portfolio.js" defer></script>
+  </body>
+</html>
