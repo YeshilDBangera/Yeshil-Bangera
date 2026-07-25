@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b12" />
+    <title>Page not found — Yeshil Bangera</title>
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/portfolio.css" />
+    <style>
+      main {
+        display: grid;
+        min-height: 100svh;
+        place-items: center;
+        padding: 32px;
+        text-align: center;
+      }
+      .error-code {
+        margin: 0;
+        color: var(--accent);
+        font-family: "SFMono-Regular", Consolas, monospace;
+        font-size: 12px;
+        letter-spacing: 0.12em;
+      }
+      h1 {
+        margin: 16px 0 10px;
+        font-size: clamp(2.5rem, 8vw, 5rem);
+        letter-spacing: -0.055em;
+        line-height: 1;
+      }
+      .error-copy {
+        max-width: 520px;
+        margin: 0 auto 28px;
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div>
+        <p class="error-code">ERROR 404</p>
+        <h1>This insight is missing.</h1>
+        <p class="error-copy">
+          The page you followed does not exist, but the rest of the portfolio is
+          ready.
+        </p>
+        <a class="button button-primary" href="/">Return home</a>
+      </div>
+    </main>
+  </body>
+</html>

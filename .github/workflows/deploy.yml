@@ -1,0 +1,62 @@
+name: Deploy site
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "experience.html"
+      - "publications.html"
+      - "blog.html"
+      - "blog-modern-analytics.html"
+      - "404.html"
+      - ".nojekyll"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "assets/css/portfolio.css"
+      - "assets/js/portfolio.js"
+      - "assets/favicon.svg"
+      - ".github/workflows/deploy.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "experience.html"
+      - "publications.html"
+      - "blog.html"
+      - "blog-modern-analytics.html"
+      - "404.html"
+      - ".nojekyll"
+      - "robots.txt"
+      - "sitemap.xml"
+      - "assets/css/portfolio.css"
+      - "assets/js/portfolio.js"
+      - "assets/favicon.svg"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+
+      - name: Build static site 🔧
+        run: |
+          mkdir -p _site/assets/css _site/assets/js
+          cp index.html experience.html publications.html blog.html blog-modern-analytics.html 404.html .nojekyll robots.txt sitemap.xml _site/
+          cp assets/css/portfolio.css _site/assets/css/
+          cp assets/js/portfolio.js _site/assets/js/
+          cp assets/favicon.svg _site/assets/
+
+      - name: Deploy 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: _site
