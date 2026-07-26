@@ -2,7 +2,7 @@
 
 Personal portfolio website for [Yeshil Bangera](https://yeshilbangera.github.io), a Senior Data Analyst focused on analytics engineering, business intelligence, and production automation.
 
-## What is included
+## What is included -
 
 - Responsive dark-tech visual design with a highlighted name and role
 - Accessible keyboard and mobile navigation
