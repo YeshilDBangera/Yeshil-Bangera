@@ -8,6 +8,78 @@ const story = document.querySelector("[data-scroll-scene]");
 const storySteps = story?.querySelectorAll("[data-story-step]") ?? [];
 const storyLabel = story?.querySelector("[data-story-label]");
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const colorScheme = window.matchMedia("(prefers-color-scheme: light)");
+const themeStorageKey = "yeshil-portfolio-theme";
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+
+const getStoredTheme = () => {
+  try {
+    const storedTheme = window.localStorage.getItem(themeStorageKey);
+    return storedTheme === "light" || storedTheme === "dark"
+      ? storedTheme
+      : null;
+  } catch {
+    return null;
+  }
+};
+
+const applyTheme = (theme, persist = false) => {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  themeMeta?.setAttribute(
+    "content",
+    theme === "light" ? "#f7f8f6" : "#07090d",
+  );
+
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const themeIcon = themeToggle?.querySelector("[data-theme-icon]");
+  const themeLabel = themeToggle?.querySelector("[data-theme-label]");
+  const nextTheme = theme === "light" ? "dark" : "light";
+
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+    themeToggle.setAttribute("title", `Switch to ${nextTheme} mode`);
+  }
+  if (themeIcon) themeIcon.textContent = theme === "light" ? "☾" : "☼";
+  if (themeLabel) {
+    themeLabel.textContent = theme === "light" ? "Dark" : "Light";
+  }
+
+  if (persist) {
+    try {
+      window.localStorage.setItem(themeStorageKey, theme);
+    } catch {
+      // The selected theme still applies when browser storage is unavailable.
+    }
+  }
+};
+
+const initialTheme =
+  getStoredTheme() ?? (colorScheme.matches ? "light" : "dark");
+applyTheme(initialTheme);
+
+if (nav) {
+  const themeToggle = document.createElement("button");
+  themeToggle.className = "theme-toggle";
+  themeToggle.type = "button";
+  themeToggle.dataset.themeToggle = "";
+  themeToggle.innerHTML =
+    '<span data-theme-icon aria-hidden="true"></span><span data-theme-label></span>';
+
+  const navCta = nav.querySelector(".nav-cta");
+  nav.insertBefore(themeToggle, navCta);
+  applyTheme(initialTheme);
+
+  themeToggle.addEventListener("click", () => {
+    const nextTheme =
+      document.documentElement.dataset.theme === "light" ? "dark" : "light";
+    applyTheme(nextTheme, true);
+  });
+}
+
+colorScheme.addEventListener?.("change", (event) => {
+  if (!getStoredTheme()) applyTheme(event.matches ? "light" : "dark");
+});
 
 const updateHeader = () => {
   header?.classList.toggle("is-scrolled", window.scrollY > 16);
